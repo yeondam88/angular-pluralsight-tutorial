@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var ProductListComponent = (function () {
     function ProductListComponent() {
-        this.isLoading = false;
+        this.showImage = false;
         this.pageTitle = 'Product List';
         this.products = [
             {
@@ -44,7 +44,7 @@ var ProductListComponent = (function () {
         ];
     }
     ProductListComponent.prototype.onClickHandler = function () {
-        this.isLoading = !this.isLoading;
+        this.showImage = !this.showImage;
     };
     return ProductListComponent;
 }());

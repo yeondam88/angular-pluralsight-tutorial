@@ -23,9 +23,9 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class="ui right teal labeled icon button" (click)="onClickHandler()" [ngClass]="{loading: isLoading}">
+                            <button class="ui right teal labeled icon button" (click)="onClickHandler()">
                                 <i class="right image icon"></i>
-                                Show Image
+                                {{ showImage ? 'Hide Image' : 'Show Image' }}
                             </button>
                         </th>
                         <th>Product</th>
@@ -37,7 +37,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let product of products">
-                        <td></td>
+                        <td><img *ngIf="showImage" class="ui mini rounded image" [src]="product.imageUrl" [title]="product.productName"></td>
                         <td>{{product.productName}}</td>
                         <td>{{ product.productCode }}</td>
                         <td>{{ product.releaseDate }}</td>

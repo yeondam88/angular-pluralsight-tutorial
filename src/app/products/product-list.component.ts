@@ -14,7 +14,7 @@ import { Component } from '@angular/core';
     `]
 })
 export class ProductListComponent {
-    isLoading: boolean = false;
+    showImage: boolean = false;
     pageTitle: string = 'Product List';
     products: any[] = [
         {
@@ -49,7 +49,7 @@ export class ProductListComponent {
         }
     ];
 
-    onClickHandler() {
-        this.isLoading = !this.isLoading;
+    onClickHandler(): void {
+        this.showImage = !this.showImage;
     }
 }
