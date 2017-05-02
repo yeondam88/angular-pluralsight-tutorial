@@ -1,11 +1,12 @@
 <div class="crop" 
     [style.width.px]="starWidth"
-    [title]="rating">
-    <div style="width: 86px">
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
+    [title]="rating"
+    (click)="onClick()">
+    <div style="width: 120px">
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
     </div>
 </div>

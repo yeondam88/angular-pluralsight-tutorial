@@ -1,25 +1,28 @@
 <div class="ui stacked segment container">
         <h4 class="ui header teal ribbon label">
             <i class="lightning icon"></i>
-            <div class="content">
+            <span class="content">
                 {{ pageTitle }}
-            </div>
+            </span>
         </h4>
     <div class="ui raised text segment">
         <div class="row downPad">
             <div class="col-md-2">Filter by:</div>
             <div class="col-md-4 ui transparent left icon input">
-                <input type="text" placeholder="Search..."/>
+                <input type="text" placeholder="Search..." [(ngModel)]="listFilter"/>
                 <i class="search icon"></i>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <h3>Filtered by: </h3>
+                <h3>Filtered by: {{ listFilter }}</h3>
             </div>
         </div>
+        <div *ngIf="!isLoaded" class="ui active centered inline loader">
+            <div class="ui small text loader">Loading</div>
+        </div>
         <div class="table-responsive">
-            <table class="table ui orange " *ngIf="products && products.length">
+            <table class="table ui orange" *ngIf="products && products.length">
                 <thead>
                     <tr>
                         <th>
@@ -36,13 +39,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of products | productFilter: listFilter">
                         <td><img *ngIf="showImage" class="ui mini rounded image" [src]="product.imageUrl" [title]="product.productName"></td>
                         <td>{{product.productName}}</td>
-                        <td>{{ product.productCode }}</td>
+                        <td>{{ product.productCode | lowercase }}</td>
                         <td>{{ product.releaseDate }}</td>
-                        <td>{{ product.price | currency: 'USD' :true }}</td>
-                        <td>{{ product.starRating }}</td>
+                        <td>{{ product.price | currency: 'USD' :true:'1.2-2' }}</td>
+                        <td><ai-star [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)"></ai-star></td>
                     </tr>
                 </tbody>
             </table>
