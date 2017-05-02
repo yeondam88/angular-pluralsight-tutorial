@@ -15,7 +15,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'pm-app',
-        template: "\n        <div class=\"container\">\n            <h1><i class=\"desktop icon\"></i> {{ pageTitle }}</h1>\n            <pm-products></pm-products>\n        </div>\n    "
+        template: "\n        <div class=\"ui fixed inverted menu\">\n            <div class=\"ui container\">\n                <a href=\"#\" class=\"header item\">\n                    <img class=\"logo\" src=\"../favicon.ico\">\n                    &nbsp; ACME Product Management\n                </a>\n                <a [routerLink]=\"['/welcome']\" class=\"item\">Home</a>\n                <a [routerLink]=\"['/products']\" class=\"item\">Products</a>\n            </div>\n        </div>\n        <div class=\"container\">\n            <h1><i class=\"desktop icon\"></i> {{ pageTitle }}</h1>\n            <router-outlet></router-outlet>\n        </div>\n    "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

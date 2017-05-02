@@ -5,7 +5,6 @@ import { ProductService } from './product.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'pm-products',
     templateUrl: 'product-list.component.html',
     styleUrls: ['product-list.component.css']
 })
@@ -26,7 +25,7 @@ export class ProductListComponent implements OnInit {
                     products => this.products = products,
                     error => this.errorMessage = <any>error);
             this.isLoaded = true;
-        }, 2000);
+        }, 500);
     }
 
     onClickHandler(): void {

@@ -24,7 +24,7 @@ var ProductListComponent = (function () {
             _this.productService.getProducts()
                 .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
             _this.isLoaded = true;
-        }, 2000);
+        }, 500);
     };
     ProductListComponent.prototype.onClickHandler = function () {
         this.showImage = !this.showImage;
@@ -37,7 +37,6 @@ var ProductListComponent = (function () {
 ProductListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'pm-products',
         templateUrl: 'product-list.component.html',
         styleUrls: ['product-list.component.css']
     }),
